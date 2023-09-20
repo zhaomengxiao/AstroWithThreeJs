@@ -1,14 +1,30 @@
 ---
+import BaseLayout from "../layouts/baseLayout.astro";
 const pageTitle = "About Me";
+
+const identity = {
+  firstName: "Youjun",
+  country: "China",
+  occupation: "Surgical Robot Tech Leader",
+  hobbies: ["3D", "XR", "Web"],
+};
+
+const skills = ["C++", "Python", "MITK", "React", "Astro"];
 ---
 
-<body>
-  <p><a href="/AstroWithThreeJs">Home</a></p>
-  <p><a href="/AstroWithThreeJs/about">About</a></p>
-  <p><a href="/AstroWithThreeJs/blog">Blog</a></p>
-  <h1>My Astro Site</h1>
-  <h1>About Me</h1>
-  <h2>... and my new Astro site!</h2>
+<style>
+  .skill {
+    color: green;
+    font-weight: bold;
+  }
+  .hobbie {
+    color: blue;
+    font-weight: bold;
+  }
+</style>
+
+<BaseLayout pageTitle={pageTitle}>
+  <p>... and my new Astro site!</p>
 
   <p>
     I am working through Astro's introductory tutorial. This is the second page
@@ -19,4 +35,26 @@ const pageTitle = "About Me";
     This site will update as I complete more of the tutorial, so keep checking
     back and see how my journey is going!
   </p>
-</body>
+
+  <p>Here are a few facts about me:</p>
+  <ul>
+    <li>My name is {identity.firstName}.</li>
+    <li>
+      I live in {identity.country} and I work as a {identity.occupation}.
+    </li>
+    <p>{identity.hobbies.length} of my hobbies are:</p>
+    {
+      identity.hobbies.length >= 2 && (
+        <ul>
+          {identity.hobbies.map((hobbie) => (
+            <li class="hobbie">{hobbie}</li>
+          ))}
+        </ul>
+      )
+    }
+  </ul>
+  <p>My skills are:</p>
+  <ul>
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
+</BaseLayout>
