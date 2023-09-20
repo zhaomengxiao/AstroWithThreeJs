@@ -1,8 +1,10 @@
 ---
 import BaseLayout from "../layouts/baseLayout.astro";
+import Pelvis from "../components/react/3d.jsx"
 const pageTitle = "Youjun's Page";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h2>My awesome blog subtitle</h2>
+	<Pelvis client:only="react" />
+	<h2>My awesome blog subtitle</h2>
 </BaseLayout>
