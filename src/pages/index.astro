@@ -1,10 +1,20 @@
 ---
 import BaseLayout from "../layouts/baseLayout.astro";
-import Pelvis from "../components/react/3d.jsx"
+import Pelvis from "../components/react/3d.jsx";
+import GoldMonkey from "../components/react/bakingSoftShadows.jsx";
 const pageTitle = "Youjun's Page";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<Pelvis client:only="react" />
-	<h2>My awesome blog subtitle</h2>
+  <Pelvis client:only="react" />
+  <h2>3D Website is Awsome</h2>
+  <div>
+    <GoldMonkey client:only="react" />
+  </div>
 </BaseLayout>
+
+<style>
+  div {
+    background: goldenrod;
+  }
+</style>
