@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../layouts/baseLayout.astro";
+import Comp from "../components/react/portfolio.jsx";
+// import Comp from "../components/react/macbook.jsx";
+const pageTitle = "Playground";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <div>
+    <Comp client:only="react" />
+  </div>
+</BaseLayout>
+
+<style>
+  div {
+    height: 80dvh;
+  }
+</style>
